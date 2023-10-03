@@ -1,39 +1,62 @@
-
+import  { useState } from 'react';
+import axios from 'axios';
 
 const ComposeNewsletter = () => {
+  const [subject, setSubject] = useState('');
+  const [newsletterContent, setNewsletterContent] = useState('');
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Send a POST request to your backend to send the newsletter
+      const response = await axios.post('/send-newsletter', {
+        subject,
+        newsletterContent,
+      });
+
+      if (response.status === 200) {
+        // Handle success if needed
+      } else {
+        setError('Newsletter sending failed. Please try again later.');
+      }
+    } catch (err) {
+      setError('Newsletter sending failed. Please try again later.');
+    }
+  };
+
   return (
     <div>
-      composeNewsletter
       <h1>Compose Newsletter</h1>
-    <label htmlFor="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" required/>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="subject">Subject:</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          required
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
 
-    <label htmlFor="newsletterContent">Newsletter Content (HTML):</label>
-    <textarea id="newsletterContent" name="newsletterContent" required></textarea>
+        <label htmlFor="newsletterContent">Newsletter Content (HTML):</label>
+        <textarea
+          id="newsletterContent"
+          name="newsletterContent"
+          required
+          value={newsletterContent}
+          onChange={(e) => setNewsletterContent(e.target.value)}
+        ></textarea>
 
-    <input type="submit" value="Send Newsletter"/>
+        <div id="email-error" style={{ color: 'red' }}>
+          {error}
+        </div>
 
+        <input type="submit" value="Send Newsletter" />
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default ComposeNewsletter
-// <!DOCTYPE html>
-// <html>
-// <head>
-//   <title>Compose Newsletter</title>
-// </head>
-// <body>
-//   <h1>Compose Newsletter</h1>
-  // <form action="/send-newsletter" method="POST">
-  //   <label for="subject">Subject:</label>
-  //   <input type="text" id="subject" name="subject" required><br><br>
-
-  //   <!-- Add a textarea for the HTML content of your newsletter -->
-  //   <label for="newsletterContent">Newsletter Content (HTML):</label>
-  //   <textarea id="newsletterContent" name="newsletterContent" required></textarea><br><br>
-
-  //   <input type="submit" value="Send Newsletter">
-  // </form>
-// </body>
-// </html>
+export default ComposeNewsletter;

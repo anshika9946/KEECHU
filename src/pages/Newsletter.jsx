@@ -18,7 +18,7 @@ function Newsletter() {
       const response = await axios.post('/subscribe', { email });
 
       if (response.status === 200) {
-        // Handle success if needed
+        console.log(response.data.message);
       } else {
         setError('Subscription failed. Please try again later.');
       }
