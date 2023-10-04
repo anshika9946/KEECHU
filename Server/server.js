@@ -6,6 +6,7 @@ const nodemailer = require('nodemailer');
 const uuid = require('uuid');
 const validator = require('validator');
 require('dotenv').config();
+const subscribeRoutes = require('./routes/subscribeRoutes');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -27,6 +28,9 @@ db.once('open', () => {
 });
 
 // Define your routes and API endpoints here
+
+// Use the subscribeRoutes
+app.use('/api', subscribeRoutes);
 
 // Start the server
 app.listen(port, () => {
