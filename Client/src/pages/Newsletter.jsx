@@ -15,7 +15,8 @@ function Newsletter() {
     }
 
     try {
-      const response = await axios.post('/subscribe', { email });
+      const response = await axios.post('http://localhost:3001/api/subscribe', { email });
+
 
       if (response.status === 200) {
         // Handle a successful subscription (e.g., show a success message)
@@ -23,6 +24,7 @@ function Newsletter() {
         setError('Subscription failed. Please try again later.');
       }
     } catch (err) {
+      console.error('Error:', err); // Log the error for debugging
       setError('Subscription failed. Please try again later.');
     }
   };

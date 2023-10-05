@@ -3,6 +3,7 @@ const validator = require('validator');
 
 const subscribe = async (req, res) => {
   try {
+    console.log('Received a subscribe request:', req.body);
     const { email } = req.body;
 
     // Validate the email address
@@ -21,6 +22,9 @@ const subscribe = async (req, res) => {
     const newSubscriber = new Subscriber({ email });
     await newSubscriber.save();
 
+
+    console.log('Response Status:', res.statusCode);
+    
     // Send a success response back to the client
     res.status(200).json({ message: 'Subscription successful.' });
   } catch (error) {
