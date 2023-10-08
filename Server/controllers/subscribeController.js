@@ -37,7 +37,13 @@ const subscribe = async (req, res) => {
     const existingSubscriber = await Subscriber.findOne({ email });
 
     if (existingSubscriber) {
-      return res.status(400).json({ error: 'Email address is already subscribed.' });
+      if (existingSubscriber.isVerified) {
+        // If the email is already verified, send a success response
+        return res.status(200).json({ message: 'Email address is already subscribed and verified.' });
+      } else {
+        // If the email is not verified, send a message to check their email for verification
+        return res.status(200).json({ message: 'Kindly check your email for verification.' });
+      }
     }
 
     // Generate a unique verification token
