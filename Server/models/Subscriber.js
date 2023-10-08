@@ -3,12 +3,17 @@ const mongoose = require('mongoose');
 const subscriberSchema = new mongoose.Schema({
   email: {
     type: String,
-    required: true,
-    unique: true, // Ensure email addresses are unique
+    required: true, // Make email a required field
+    unique: true, // Ensure emails are unique in the database
   },
-  verificationToken: String,
-  isVerified: Boolean,
+  verificationToken: {
+    type: String,
+    required: true,
+  },
+  isVerified: {
+    type: Boolean,
+    default: false, // Set the default value to false
+  },
 });
 
-// Create and export the Subscriber model
 module.exports = mongoose.model('Subscriber', subscriberSchema);

@@ -7,6 +7,7 @@ const uuid = require('uuid');
 const validator = require('validator');
 require('dotenv').config();
 const subscribeRoutes = require('./routes/subscribeRoutes');
+const Subscriber = require('./models/Subscriber'); 
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -31,6 +32,32 @@ db.once('open', () => {
 
 // Use the subscribeRoutes
 app.use('/api', subscribeRoutes);
+
+// Backend route for email verification
+app.get('/verify/:token', async (req, res) => {
+  const token = req.params.token;
+  try {
+      // Find the subscriber with the given token
+      const subscriber = await Subscriber.findOne({ verificationToken: token });
+
+      if (!subscriber) {
+          return res.status(404).send('Invalid verification token.');
+      }
+
+      // Update the 'isVerified' field to 'true'
+      subscriber.isVerified = true;
+      await subscriber.save();
+
+      // Provide a response to the user
+      console.log('Email verification successful');
+      res.send('Subscription successfully verified.');
+      
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('An error occurred during email verification.');
+  }
+});
+
 
 // Start the server
 app.listen(port, () => {

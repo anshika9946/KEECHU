@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
 // Replace 'YOUR_MONGODB_URI' with your actual MongoDB connection URI
-const mongoURI = 'mongodb+srv://Anshika:Anshika1@cluster0.tfuxtxa.mongodb.net/new?retryWrites=true&w=majority';
 
-mongoose.connect(mongoURI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
