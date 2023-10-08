@@ -7,6 +7,7 @@ const uuid = require('uuid');
 const validator = require('validator');
 require('dotenv').config();
 const subscribeRoutes = require('./routes/subscribeRoutes');
+const newsletterRoutes = require('./routes/newsletterRoutes'); 
 const Subscriber = require('./models/Subscriber'); 
 
 const app = express();
@@ -32,7 +33,8 @@ db.once('open', () => {
 
 // Use the subscribeRoutes
 app.use('/api', subscribeRoutes);
-
+// Use the newsletterRoutes
+app.use('/api', newsletterRoutes);
 // Backend route for email verification
 app.get('/verify/:token', async (req, res) => {
   const token = req.params.token;

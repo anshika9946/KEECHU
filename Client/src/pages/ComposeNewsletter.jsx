@@ -5,18 +5,20 @@ function ComposeNewsletter() {
   const [subject, setSubject] = useState('');
   const [newsletterContent, setNewsletterContent] = useState('');
   const [error, setError] = useState(null);
+  const [isNewsletterSent, setIsNewsletterSent] = useState(false); // Add state for success message
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/send-newsletter', {
+      const response = await axios.post('http://localhost:3001/api/send-newsletter', { // Updated the API endpoint
         subject,
         newsletterContent,
       });
 
       if (response.status === 200) {
         // Handle a successful newsletter submission (e.g., show a success message)
+        setIsNewsletterSent(true); // Set success message to true
       } else {
         setError('Newsletter sending failed. Please try again later.');
       }
@@ -53,6 +55,12 @@ function ComposeNewsletter() {
         </div>
 
         <input type="submit" value="Send Newsletter" />
+
+        {isNewsletterSent && (
+          <div style={{ color: 'green', marginTop: '10px' }}>
+            Newsletter sent successfully!
+          </div>
+        )}
       </form>
     </div>
   );

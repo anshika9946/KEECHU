@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const Subscriber = require('../models/Subscriber');
+require('dotenv').config();
 
 const sendNewsletter = async (req, res) => {
   try {
@@ -26,7 +27,7 @@ const sendNewsletter = async (req, res) => {
         to: email,
         subject: subject,
         // Use the HTML content from the textarea as the email body
-        html: newsletterContent,
+        html: newsletterContent, // Use the provided HTML content
       };
 
       await transporter.sendMail(mailOptions);
