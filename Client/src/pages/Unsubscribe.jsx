@@ -9,7 +9,7 @@ function Unsubscribe() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/unsubscribe/' + email);
+      const response = await axios.post('https://keechu.onrender.com/api/unsubscribe/' + email);
 
       if (response.status === 200) {
         setMessage('You have successfully unsubscribed.');

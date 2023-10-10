@@ -15,7 +15,7 @@ function Newsletter() {
     }
 
     try {
-      const response = await axios.post('http://localhost:3001/api/subscribe', { email });
+      const response = await axios.post('https://keechu.onrender.com/api/subscribe', { email });
 
       if (response.status === 200) {
         // Handle the different response messages

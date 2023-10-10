@@ -11,7 +11,7 @@ function ComposeNewsletter() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/send-newsletter', { // Updated the API endpoint
+      const response = await axios.post('https://keechu.onrender.com/api/send-newsletter', { // Updated the API endpoint
         subject,
         newsletterContent,
       });
