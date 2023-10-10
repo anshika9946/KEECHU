@@ -18,7 +18,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
     to: email,
     subject: 'Email Verification',
     html: `<p>Click the following link to verify your email:</p>
-      <a href="http://localhost:3001/verify/${verificationToken}">Verify Email</a>`,
+      <a href="https://keechu.onrender.com/verify/${verificationToken}">Verify Email</a>`,
   };
 
   await transporter.sendMail(mailOptions);
