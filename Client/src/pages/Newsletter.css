@@ -1,44 +1,106 @@
-.NewsletterSubscription {
+.wrapper {
+  min-height: 100vh;
+  color: #000;
+  font-family: 'comic sans ms', sans-serif;
+  font-size: 1rem;
+  background-color: #F6F1EE;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
   text-align: center;
-  padding: 20px;
 }
 
-form {
-  max-width: 400px;
-  margin: 0 auto;
+.container {
+  background-color: #FAD8D7;
+  padding: 1em;
+  border-radius: 1em;
+  max-width: 768px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-box-shadow: 0px 17px 34px -20px #000000;
+          box-shadow: 0px 17px 34px -20px #000000;
 }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
+
+.text {
+  font-size: 0.8 rem;
+  margin-bottom: 0.8em;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.container {
+  width: 300px;
+  overflow: hidden;
+  padding: 0;
 }
 
-input[type="email"] {
+.img {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  height: auto;
+  border-radius: 1em 1em 0 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
 }
 
-.error {
-  color: red;
-  margin-top: 10px;
+.img__container {
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+
+.title {
+  margin-bottom: 0.9em;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 0.8em;
+  font-weight: 400;
+}
+
+.content {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 0 2em;
+  margin-bottom: 1em;
+}
+
+.email {
+  padding: 0.5rem 0 0.5rem 1rem;
+  line-height: 1.5;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  border-radius: 1em;
+  margin-bottom: 0;
 }
 
 button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
+  background-color: #f55951; /* Green */
   border: none;
-  border-radius: 5px;
+  border-radius: 2rem;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-bottom: 1.3em;
+  margin-top: 0%;
 }
 
-button:hover {
-  background-color: #0056b3;
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }

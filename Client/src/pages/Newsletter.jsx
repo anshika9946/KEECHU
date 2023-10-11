@@ -41,9 +41,15 @@ function Newsletter() {
   return (
     <div className="NewsletterSubscription">
       <form onSubmit={handleSubmit}>
-        <h2>Subscribe to Our Newsletter</h2>
-        <div className="form-group">
+      <section className="wrapper">
+          <div className="container">
+            <div className="img__container">
+              <img src="src\assets\Img.png" alt="salad" className="img" />
+            </div>
+            <div className="content">
+              <h2 className="subtitle">Get a weekly dose of motivation from KEECHU</h2>
           <input
+          className="email"
             type="email"
             placeholder="Your Email"
             value={email}
@@ -53,8 +59,10 @@ function Newsletter() {
         </div>
         {message && <div className={message.startsWith('Subscription failed.') ? 'error' : 'success'}>{message}</div>}
         <div className="form-group">
-          <button type="submit">Subscribe</button>
-        </div>
+          <button type="submit" className="subscribe">Subscribe</button>
+          </div>
+          </div>
+        </section>
       </form>
     </div>
   );
