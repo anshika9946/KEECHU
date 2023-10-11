@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './SubscriberList.css';
+
 
 function SubscriberList() {
   const [subscribers, setSubscribers] = useState([]);
@@ -19,15 +21,20 @@ function SubscriberList() {
     <div>
       <h2>Subscriber List</h2>
       <table>
-        <thead>
+      <thead>
           <tr>
+            <th>S.no</th>
             <th>Email</th>
+            <th>Is Verified</th>
+            {/* Add more columns as needed */}
           </tr>
         </thead>
         <tbody>
-          {subscribers.map((subscriber) => (
+          {subscribers.map((subscriber, index) => (
             <tr key={subscriber._id}>
+              <td>{index + 1}</td>
               <td>{subscriber.email}</td>
+              <td>{subscriber.isVerified ? 'Yes' : 'No'}</td>
             </tr>
           ))}
         </tbody>
