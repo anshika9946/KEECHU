@@ -10,6 +10,7 @@ const subscribeRoutes = require('./routes/subscribeRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes'); 
 const unsubscribeRoutes = require('./routes/unsubscribeRoutes');
 const Subscriber = require('./models/Subscriber'); 
+const subscribeListRoute = require('./routes/subscribeListRoute');
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -38,6 +39,8 @@ app.use('/api', subscribeRoutes);
 app.use('/api', newsletterRoutes);
 // Use the unsubscribeRoutes
 app.use('/api/unsubscribe', unsubscribeRoutes);
+// Use the subscribe list route
+app.use('/api', subscribeListRoute);
 
 // Backend route for email verification
 app.get('/verify/:token', async (req, res) => {
