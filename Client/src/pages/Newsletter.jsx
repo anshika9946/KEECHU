@@ -44,7 +44,7 @@ function Newsletter() {
       <section className="wrapper">
           <div className="container">
             <div className="img__container">
-              <img src="src\assets\Img.png" alt="salad" className="img" />
+              <img src="https://drive.google.com/file/d/1rdTMeLWyzJ6DAQYU0AttopGsULbqqDRu/view?usp=drive_link" alt="salad" className="img" />
             </div>
             <div className="content">
               <h2 className="subtitle">Get a weekly dose of motivation from KEECHU</h2>
