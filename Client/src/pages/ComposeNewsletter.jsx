@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import './ComposeNewsletter.css'; // Import your CSS file
 
 function ComposeNewsletter() {
   const [subject, setSubject] = useState('');
@@ -11,7 +12,7 @@ function ComposeNewsletter() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://keechu.onrender.com/api/send-newsletter', { // Updated the API endpoint
+      const response = await axios.post('https://keechu.onrender.com/api/send-newsletter', {
         subject,
         newsletterContent,
       });
@@ -28,38 +29,40 @@ function ComposeNewsletter() {
   };
 
   return (
-    <div>
+    <div className="newsletter-container">
       <h1>Compose Newsletter</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="subject">Subject:</label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          required
-          value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
-
-        <label htmlFor="newsletterContent">Newsletter Content (HTML):</label>
-        <textarea
-          id="newsletterContent"
-          name="newsletterContent"
-          required
-          value={newsletterContent}
-          onChange={(e) => setNewsletterContent(e.target.value)}
-        ></textarea>
-
-        <div id="email-error" style={{ color: 'red' }}>
-          {error}
+        <div className="form-group">
+          <label htmlFor="subject">Subject:</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
         </div>
 
-        <input type="submit" value="Send Newsletter" />
+        <div className="form-group">
+          <label htmlFor="newsletterContent">Newsletter Content (HTML):</label>
+          <textarea
+            id="newsletterContent"
+            name="newsletterContent"
+            required
+            value={newsletterContent}
+            onChange={(e) => setNewsletterContent(e.target.value)}
+          />
+        </div>
+
+        {error && <div className="error-message">{error}</div>}
+
+        <div className="form-group">
+          <input type="submit" value="Send Newsletter" />
+        </div>
 
         {isNewsletterSent && (
-          <div style={{ color: 'green', marginTop: '10px' }}>
-            Newsletter sent successfully!
-          </div>
+          <div className="success-message">Newsletter sent successfully!</div>
         )}
       </form>
     </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import './Unsubscribe.css';
 
 function Unsubscribe() {
   const [email, setEmail] = useState('');
@@ -22,21 +23,24 @@ function Unsubscribe() {
   };
 
   return (
-    <div>
-      <h1>Unsubscribe</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <div>{message}</div>
-        <button type="submit">Unsubscribe</button>
-      </form>
+    <div className="unsubscribe-container">
+      <div className="unsubscribe-box">
+        <h1 className="unsubscribe-title">Unsubscribe</h1>
+        <form onSubmit={handleSubmit} className="unsubscribe-form">
+          <label htmlFor="email" className="unsubscribe-label">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="unsubscribe-input"
+          />
+          <button type="submit" className="unsubscribe-button">Unsubscribe</button>
+        </form>
+        <div className="unsubscribe-message">{message}</div>
+      </div>
     </div>
   );
 }
