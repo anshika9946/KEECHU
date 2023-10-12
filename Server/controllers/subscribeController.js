@@ -19,10 +19,11 @@ const sendVerificationEmail = async (email, verificationToken) => {
     subject: 'Email Verification',
     html: ` <html>
     <body>
-      <div style="text-align: center; background-color: #F6F1EE; padding: 20px;">
-        <h1 style="color: #f55951;">Email Verification</h1>
-        <p style="font-size: 18px;">Thank you for subscribing to KEECHU!</p>
-        <p style="font-size: 18px;">Please click the following link to verify your email:</p>
+      <div style="text-align: center; background-color: #F6F1EE; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #f55951;">Email Verification</h2>
+        <p style="font-size: 18px; margin: 20px 0;">Thank you for subscribing to KEECHU!</p>
+        <p style="font-size: 16px; margin: 20px 0;">We are excited to have you on board.</p>
+        <p style="font-size: 16px; margin: 20px 0;">Please click the following link to verify your email:</p>
         <a href="https://keechu.onrender.com/verify/${verificationToken}" style="display: inline-block; padding: 10px 20px; background-color: #f55951; color: white; text-decoration: none; border-radius: 5px;">Verify Email</a>
       </div>
     </body>

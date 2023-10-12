@@ -59,7 +59,7 @@ app.get('/verify/:token', async (req, res) => {
 
       // Provide a response to the user
       console.log('Email verification successful');
-      res.send('Subscription successfully verified.');
+      res.sendFile(__dirname + '/verification-success.html');
       
   } catch (error) {
       console.error(error);
