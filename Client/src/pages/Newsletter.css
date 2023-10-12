@@ -84,7 +84,7 @@ body {
   margin-bottom: 0;
 }
 
-button {
+.subscribe {
   background-color: #f55951; /* Green */
   border: none;
   border-radius: 2rem;
