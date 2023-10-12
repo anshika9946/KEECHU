@@ -1,6 +1,7 @@
 import './Newsletter.css'; // Import your CSS file
 import { useState } from 'react';
 import axios from 'axios';
+import Img from '/src/assets/Img.png';
 
 function Newsletter() {
   const [email, setEmail] = useState('');
@@ -44,7 +45,7 @@ function Newsletter() {
       <section className="wrapper">
           <div className="container">
             <div className="img__container">
-              <img src="\assets\Img.png" alt="keechu" className="img" />
+              <img src={Img} alt="keechu" className="img" />
             </div>
             <div className="content">
               <h2 className="subtitle">Get a weekly dose of motivation from KEECHU</h2>
