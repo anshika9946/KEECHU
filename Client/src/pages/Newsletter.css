@@ -1,3 +1,9 @@
+body {
+  margin: 0; /* Add this to remove the default margin */
+  padding: 0; 
+  background-color: #F6F1EE;/* You can also add this to remove padding */
+}
+
 .wrapper {
   min-height: 100vh;
   color: #000;
@@ -14,7 +20,7 @@
   background-color: #FAD8D7;
   padding: 1em;
   border-radius: 1em;
-  max-width: 768px;
+  max-width: 100%;
   display: -ms-grid;
   display: grid;
   place-items: center;
