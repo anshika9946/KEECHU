@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './Unsubscribe.css';
+import './css/Unsubscribe.css';
 
 function Unsubscribe() {
   const [email, setEmail] = useState('');

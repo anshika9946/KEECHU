@@ -1,4 +1,4 @@
-import './Newsletter.css'; // Import your CSS file
+import './css/Newsletter.css'; // Import your CSS file
 import { useState } from 'react';
 import axios from 'axios';
 import Img from '/src/assets/Img.png';

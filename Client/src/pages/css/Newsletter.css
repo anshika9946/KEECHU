@@ -5,7 +5,7 @@ body {
 }
 
 .wrapper {
-  min-height: 100vh;
+  min-height: 50vh;
   color: #000;
   font-family: 'comic sans ms', sans-serif;
   font-size: 1rem;

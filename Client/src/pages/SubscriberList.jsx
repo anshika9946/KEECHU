@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './SubscriberList.css';
+import './css/SubscriberList.css';
 
 
 function SubscriberList() {
