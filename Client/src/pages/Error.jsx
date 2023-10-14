@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Img from '/src/assets/Error.svg';
+import Img from '/src/assets/coming.svg';
 const Error = () => {
   return (
     <Wrapper>
