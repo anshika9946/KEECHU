@@ -1,10 +1,10 @@
 import Home from "../pages/Home"
-import Navbar from "../pages/Navbar"
+// import Navbar from "../pages/Navbar"
 
 const PHome = () => {
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <Home/>
     </>
   )
