@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './css/ComposeNewsletter.css'; // Import your CSS file
+import './Pcss/ComposeNewsletter.css'; // Import your CSS file
 
 function ComposeNewsletter() {
   const [subject, setSubject] = useState('');

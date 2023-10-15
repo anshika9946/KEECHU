@@ -1,0 +1,41 @@
+.navbar {
+    background-color: #FBD9D8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    z-index: 1;
+    height: 6rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    padding: 0rem 10rem 0rem 10rem;
+    margin: 0;
+    gap: 180px; /* Add spacing between nav links */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #763323;
+    font-weight: bold;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center; /* Center the logo vertically */
+  }
+  
+  .logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px; /* Limit the logo height */
+  }
+  

@@ -1,22 +1,25 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Newsletter from './pages/Newsletter';
-import ComposeNewsletter from './pages/ComposeNewsletter';
-import Unsubscribe from './pages/Unsubscribe';
-import SubscriberList from './pages/SubscriberList';
-import Error from './pages/Error';
-
-
+import ComposeNewsletter from './RoutesP/ComposeNewsletter';
+import Unsubscribe from './RoutesP/Unsubscribe';
+import SubscriberList from './RoutesP/SubscriberList';
+import Error from './RoutesP/Error';
+import PHome from './RoutesP/PHome';
 import './App.css';
+import PMerch from './RoutesP/PMerch';
+import PNewsletter from './RoutesP/PNewsletter';
+import PBlogs from './RoutesP/PBlogs';
+
 
 const App = () => {
 	return (
 		<div className='App'>
 			<BrowserRouter>
 				<Routes>
-					<Route path='/' exact element={<Home />} />
-					<Route path='/newsletter' element={<Newsletter />} />
+					<Route path='/' exact element={<PHome/>}/>
+					<Route path='/merch' element={<PMerch />} />
+					<Route path='/newsletter' element={<PNewsletter />} />
+					<Route path='/blogs' element={<PBlogs />} />
 					<Route path='/composeNewsletter' element={<ComposeNewsletter />} />
 					<Route path='/unsubscribe' element={<Unsubscribe />} />
 					<Route path='/subscriberList' element={<SubscriberList />} />

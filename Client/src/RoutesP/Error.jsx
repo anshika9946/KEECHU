@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Img from '/src/assets/coming.svg';
+import Img from '/src/assets/error.png';
 const Error = () => {
   return (
     <Wrapper>
@@ -18,9 +18,11 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  img {
+    max-width: 50%;  
+  }
   .btn {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin-top: 3rem;
   }
 `;

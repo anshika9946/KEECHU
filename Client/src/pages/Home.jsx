@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Img from '/src/assets/coming.svg';
+
 const Home = () => {
   return (
     <Wrapper>
@@ -10,11 +11,15 @@ const Home = () => {
 
 const Wrapper = styled.section`
 max-widhth:10rem;
-  padding: 0rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  img {
+    max-width: 70%; 
+  }
+  
 `;
 
 export default Home;
