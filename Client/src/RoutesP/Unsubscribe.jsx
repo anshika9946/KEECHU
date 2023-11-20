@@ -14,7 +14,10 @@ function Unsubscribe() {
 
       if (response.status === 200) {
         setMessage('You have successfully unsubscribed.');
-      } else {
+      } else if (response.status===404){
+        setMessage('Subscriber not found.');
+      }
+      else{
         setMessage('Unsubscription failed. Please try again later.');
       }
     } catch (err) {
