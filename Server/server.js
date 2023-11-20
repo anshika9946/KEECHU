@@ -13,7 +13,7 @@ const Subscriber = require('./models/Subscriber');
 const subscribeListRoute = require('./routes/subscribeListRoute');
 
 
-const https = require('http'); // Add this line
+const https = require('https'); // Add this line
 
 const app = express();
 const port = process.env.PORT || 3001;
