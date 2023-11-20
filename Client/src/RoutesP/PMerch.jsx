@@ -1,13 +1,25 @@
-// import Navbar from "../pages/Navbar"
-import Unsubscribe from "./Unsubscribe"
+import styled from "styled-components";
+import Img from '/src/assets/coming.svg';
 
 const PMerch = () => {
   return (
-    <>
-    {/* <Navbar/> */}
-    <Unsubscribe/>
-    </>
-  )
-}
+    <Wrapper>
+      <img src={Img} alt="error" />
+    </Wrapper>
+  );
+};
 
-export default PMerch
+const Wrapper = styled.section`
+max-widhth:10rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    max-width: 70%; 
+  }
+  
+`;
+
+export default PMerch;

@@ -1,13 +1,25 @@
-import ComposeNewsletter from "./ComposeNewsletter"
-// import Navbar from "../pages/Navbar"
+import styled from "styled-components";
+import Img from '/src/assets/coming.svg';
 
 const PBlogs = () => {
   return (
-    <>
-    {/* <Navbar/> */}
-    <ComposeNewsletter/>
-    </>
-  )
-}
+    <Wrapper>
+      <img src={Img} alt="error" />
+    </Wrapper>
+  );
+};
 
-export default PBlogs
+const Wrapper = styled.section`
+max-widhth:10rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    max-width: 70%; 
+  }
+  
+`;
+
+export default PBlogs;
