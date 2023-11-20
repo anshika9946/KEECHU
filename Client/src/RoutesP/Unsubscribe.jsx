@@ -20,7 +20,7 @@ function Unsubscribe() {
         setMessage('Subscriber not found.');
       }
     } catch (err) {
-      setMessage('Unsubscription failed. Please try again later.');
+      setMessage('Subscriber not found. Please try again later.');
     }
   };
 
