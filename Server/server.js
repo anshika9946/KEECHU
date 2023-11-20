@@ -12,6 +12,9 @@ const unsubscribeRoutes = require('./routes/unsubscribeRoutes');
 const Subscriber = require('./models/Subscriber'); 
 const subscribeListRoute = require('./routes/subscribeListRoute');
 
+
+const https = require('http'); // Add this line
+
 const app = express();
 const port = process.env.PORT || 3001;
 
@@ -67,6 +70,10 @@ app.get('/verify/:token', async (req, res) => {
   }
 });
 
+// Keep the server awake by sending a request every 5 minutes
+setInterval(() => {
+  http.get('https://keechu.onrender.com'); // Replace with your Render app URL
+}, 300000); // 300,000 milliseconds = 5 minutes
 
 // Start the server
 app.listen(port, () => {
