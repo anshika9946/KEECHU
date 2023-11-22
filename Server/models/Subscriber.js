@@ -14,6 +14,12 @@ const subscriberSchema = new mongoose.Schema({
     type: Boolean,
     default: false, // Set the default value to false
   },
+  isWelcomeEmailSent: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-module.exports = mongoose.model('Subscriber', subscriberSchema);
+const Subscriber = mongoose.model('Subscriber', subscriberSchema);
+
+module.exports = Subscriber;
