@@ -33,6 +33,27 @@ const sendVerificationEmail = async (email, verificationToken) => {
   await transporter.sendMail(mailOptions);
 };
 
+const sendWelcomeEmail = async (email) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: process.env.GMAIL_USER,
+    to: email,
+    subject: 'Welcome to Your App!',
+    html: '<p>Thank you for joining us! Welcome to our community.</p>',
+  };
+
+  await transporter.sendMail(mailOptions);
+
+  console.log(`Welcome email sent successfully to ${email}.`);
+};
+
 const subscribe = async (req, res) => {
   try {
     const { email } = req.body;
@@ -83,9 +104,14 @@ const verifyEmail = async (req, res) => {
     if (!subscriber) {
       return res.status(404).send('Invalid verification token.');
     }
+    if (subscriber.isVerified) {
+      return res.status(200).send('Email is already verified.');
+    }
+
     subscriber.isVerified = true;
     await subscriber.save();
 
+    await sendWelcomeEmail(subscriber.email);
     // Add a console log message here
     console.log('Email verification successful for subscriber:', subscriber.email);
 
