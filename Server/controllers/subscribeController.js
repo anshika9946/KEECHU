@@ -19,7 +19,7 @@ const sendVerificationEmail = async (email, verificationToken) => {
     subject: 'Email Verification',
     html: ` <html>
     <body>
-      <div style="text-align: center; background-color: #F6F1EE; padding: 20px; border-radius: 10px;">
+    <div style="text-align: center; background-color: #fdfdfd; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
         <h2 style="color: #f55951;">Email Verification</h2>
         <p style="font-size: 18px; margin: 20px 0;">Thank you for subscribing to KEECHU!</p>
         <p style="font-size: 16px; margin: 20px 0;">We are excited to have you on board.</p>

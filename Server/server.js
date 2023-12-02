@@ -13,7 +13,7 @@ const Subscriber = require('./models/Subscriber');
 const subscribeListRoute = require('./routes/subscribeListRoute');
 
 
-const https = require('https'); // Add this line
+const https = require('https'); 
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -73,7 +73,7 @@ app.get('/verify/:token', async (req, res) => {
 // Keep the server awake by sending a request every 5 minutes
 setInterval(() => {
   https.get('https://keechu.onrender.com');
-}, 300000); // 300,000 milliseconds = 5 minutes
+}, 300000); 
 
 // Start the server
 app.listen(port, () => {
