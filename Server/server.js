@@ -11,6 +11,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes');
 const unsubscribeRoutes = require('./routes/unsubscribeRoutes');
 const Subscriber = require('./models/Subscriber'); 
 const subscribeListRoute = require('./routes/subscribeListRoute');
+const emailRoutes = require('./routes/emailRoutes');
 
 
 const https = require('https'); 
@@ -36,15 +37,11 @@ db.once('open', () => {
 
 // Define your routes and API endpoints here
 
-// Use the subscribeRoutes
 app.use('/api', subscribeRoutes);
-// Use the newsletterRoutes
 app.use('/api', newsletterRoutes);
-// Use the unsubscribeRoutes
 app.use('/api/unsubscribe', unsubscribeRoutes);
-// Use the subscribe list route
 app.use('/api', subscribeListRoute);
-
+app.use('/api/email', emailRoutes);
 // Backend route for email verification
 app.get('/verify/:token', async (req, res) => {
   const token = req.params.token;
@@ -56,11 +53,9 @@ app.get('/verify/:token', async (req, res) => {
           return res.status(404).send('Invalid verification token.');
       }
 
-      // Update the 'isVerified' field to 'true'
       subscriber.isVerified = true;
       await subscriber.save();
 
-      // Provide a response to the user
       console.log('Email verification successful');
       res.sendFile(__dirname + '/verification-success.html');
       

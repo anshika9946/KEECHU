@@ -9,6 +9,7 @@ import './App.css';
 import PMerch from './RoutesP/PMerch';
 import PNewsletter from './RoutesP/PNewsletter';
 import PBlogs from './RoutesP/PBlogs';
+import TestEmail from './RoutesP/TestMail';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
 					<Route path='/composeNewsletter' element={<ComposeNewsletter />} />
 					<Route path='/unsubscribe' element={<Unsubscribe />} />
 					<Route path='/subscriberList' element={<SubscriberList />} />
+					<Route path='/testing100' element={<TestEmail />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
 			</BrowserRouter>
