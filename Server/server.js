@@ -58,7 +58,7 @@ app.get('/verify/:token', async (req, res) => {
       await subscriber.save();
 
       console.log('Email verification successful');
-      res.sendFile(__dirname + '/verification-success.html');
+      res.sendFile(path.join(__dirname, 'verification-success.html'));
       
   } catch (error) {
       console.error(error);
