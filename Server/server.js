@@ -12,6 +12,7 @@ const unsubscribeRoutes = require('./routes/unsubscribeRoutes');
 const Subscriber = require('./models/Subscriber'); 
 const subscribeListRoute = require('./routes/subscribeListRoute');
 const emailRoutes = require('./routes/emailRoutes');
+const path = require('path'); // Add this line
 
 
 const https = require('https'); 
@@ -34,7 +35,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
   console.log('Connected to MongoDB');
 });
-
+app.use(express.static(path.join(__dirname, 'public')));
 // Define your routes and API endpoints here
 
 app.use('/api', subscribeRoutes);
