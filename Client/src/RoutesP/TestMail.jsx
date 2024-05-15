@@ -11,9 +11,11 @@ function TestEmail() {
 
   const handleSendTestEmail = async (e) => {
     e.preventDefault();
+    setError(null); // Reset error state before making the request
+    setIsEmailSent(false); // Reset email sent state before making the request
 
     try {
-      const response = await axios.post('https://keechu.onrender.com/api/send-test-email', {
+      const response = await axios.post('https://keechu.onrender.com/api/email/send-test-email', {
         toEmail,
         subject,
         emailContent,
